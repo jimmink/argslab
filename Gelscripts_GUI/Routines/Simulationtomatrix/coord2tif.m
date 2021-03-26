@@ -11,7 +11,7 @@ for i = size(data,1):-1:1
     end
 end
 
-data = (data(:,3:5)./BoxSize_input).*BoxSize_output;  % Transform coordinates into units of sigma
+data = (data./BoxSize_input).*BoxSize_output;  % Transform coordinates into units of sigma
 
 VoxelXSize = VoxelSizes(1);
 VoxelYSize = VoxelSizes(2);
