@@ -45,8 +45,8 @@ sesize = 5;                                 % Diameter of 3D spherical structuri
 minfrac = .001;                             % All objects smaller than minfrac*maxobject are removed before skeletonization.
 
 % Skeletonization parameters
-term_skel_thr = .9;                         % Throws away all terminal skeleton links that are smaller than this threshold. Unit is particle diameter.
-coll_skel_thr = 1.5;                        % Collects any nodes that are closer together than this threshold, units in particle diameter. It is recommended to have coll_skel_thr <= term_skel_thr.
+term_skel_thr = 1.5;                         % Throws away all terminal skeleton links that are smaller than this threshold. Unit is particle diameter.
+coll_skel_thr = .9;                        % Collects any nodes that are closer together than this threshold, units in particle diameter. It is recommended to have coll_skel_thr <= term_skel_thr.
 
 % Tortuosity parameters
 edgenode_dist = 5;                          % Sets the region in which nodes exist are defined as edge nodes, in units of µm. It is recommended to set this larger than 1.5 sigma.
