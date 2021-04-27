@@ -124,7 +124,7 @@ for a = 1:size(filepaths,2)
         save([pathstr,'/Output/',fname,'/skeleton.mat'],'skel','Apath','node','link');
     end
 
-    %% Link length and node/link denisities
+    %% Link length and node/link densities
 
     if strcmp(switch_linklength,'yes') || strcmp(switch_visualize,'yes') || strcmp(switch_optimizationtools,'yes')
         if strcmp(switch_outputlabeling,'yes')
