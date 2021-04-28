@@ -22,6 +22,6 @@ if strcmp(switch_visualize,'yes') == 1
     close(ntn)
 end
 
-save([pwd,filesep,projectpath,filesep,'Output/linklength_summary.mat'],'ll_distribution','ll_summary')
+save([projectpath,filesep,'Output/linklength_summary.mat'],'ll_distribution','ll_summary')
 
 end
