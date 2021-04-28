@@ -115,7 +115,7 @@ for a = 1:size(filepaths,2)
     %% Remove all edge nodes and links, if required
     
     if strcmp(visualize_edges,'no')
-        [skel, Apath, node, link] = wrapper_edgeclean(skel, edgenode_dist, particlediameter, realpx);
+        [skel, Apath, node, link] = wrapper_edgeclean(skel, edgenode_dist, particlediameter, realpx, cl_thr);
     end
     
 	%% Save skeleton, if required
