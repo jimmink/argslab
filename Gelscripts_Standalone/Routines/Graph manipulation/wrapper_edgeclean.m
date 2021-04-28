@@ -1,4 +1,4 @@
-function [skel2, Apath, node, link] = wrapper_edgeclean( skel, edge_thr, particlediameter, realpx )
+function [skel2, Apath, node, link] = wrapper_edgeclean( skel, edge_thr, particlediameter, realpx, cl_thr )
 % WRAPPER_EDGECLEAN is a wrapper script around
 % SKEL2GRAPH_EDGECLEAN. This creates graph files from a skeleton, and 
 % applies a thorough cleaning. 
@@ -37,6 +37,10 @@ while done == 0
     skel2 = skeln;
     
 end
+
+%% Collect clusternodes
+
+[node,link] = collect_clusternodes(node,link,cl_thr,[w,l,h],realpx);
 
 %% Add lengths to link
 
