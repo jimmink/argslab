@@ -66,7 +66,7 @@ function [node,link] = collect_clusternodes(node,link,cl_thr,sizes,realpx)
     end
 
     % group these together in sets of linked clusters
-    clusterlist = cell(size(connection_list,1),7);
+    clusterlist = cell(size(connection_list,1),8);
     counter = 1;
     while counter <= size(connection_list,1)
         cn_counter = 2;
@@ -75,7 +75,7 @@ function [node,link] = collect_clusternodes(node,link,cl_thr,sizes,realpx)
             new_cn = nonzeros(connection_list(c_lut(conn_nodes(1,cn_counter)),:))';
             new_cn = new_cn(~ismember(new_cn,conn_nodes));
             if ~isempty(new_cn)
-                conn_nodes = [conn_nodes, new_cn];
+                conn_nodes = [conn_nodes, new_cn]; %#ok<AGROW>
             end
             cn_counter = cn_counter + 1;
         end
@@ -102,11 +102,13 @@ function [node,link] = collect_clusternodes(node,link,cl_thr,sizes,realpx)
     % 4 - all nodes the combined node will be connecting to
     % 5 - coordinates of the combined node center
     % 6 - intra-node links, to be merged into the combined node
-    % 7 - all voxels of the old nodes and intra-node links (for now)
+    % 7 - all voxels of the old nodes, the intra-node links and the
+    % external links
+    % 8 - all voxels of the old nodes and intra-node links (for now)
     for i = 1:size(clusterlist,1)
         linkpernode = [];
         for j = 1:size(clusterlist{i,1},2)
-            linkpernode = [linkpernode node(clusterlist{i,1}(j)).links];
+            linkpernode = [linkpernode node(clusterlist{i,1}(j)).links]; %#ok<AGROW>
         end
         linkpernode = unique(linkpernode);
         for j = 1:size(linkpernode,2)
@@ -119,7 +121,8 @@ function [node,link] = collect_clusternodes(node,link,cl_thr,sizes,realpx)
         end
         clusterlist{i,4} = setdiff(unique([node(clusterlist{i,1}).conn]),clusterlist{i,1});
         clusterlist{i,7} = unique([[link(clusterlist{i,3}).point] [link(clusterlist{i,6}).point] vertcat(node(clusterlist{i,1}).idx)']);
-        [x,y,z] = ind2sub(sizes,clusterlist{i,7});
+        clusterlist{i,8} = unique([[link(clusterlist{i,6}).point] vertcat(node(clusterlist{i,1}).idx)']);
+        [x,y,z] = ind2sub(sizes,clusterlist{i,8});
         means = [mean(x),mean(y),mean(z)];
 
         [~,temp3] = min(sum(abs([x;y;z]' - means),2));
@@ -150,7 +153,7 @@ function [node,link] = collect_clusternodes(node,link,cl_thr,sizes,realpx)
         non_primary_nodes = clusterlist{i,1}(2:end);
         node_replist(clusterlist{i,1}(2:end)) = NaN;
         link_replist(clusterlist{i,6}) = NaN;
-
+        
         for j = 1:size(clusterlist{i,3},2)
             oldvox1 = link(clusterlist{i,3}(j)).n1;
             oldvox2 = link(clusterlist{i,3}(j)).n2;
@@ -173,7 +176,7 @@ function [node,link] = collect_clusternodes(node,link,cl_thr,sizes,realpx)
             allowed_voxels = clusterlist{i,7};
             noncl_node = setdiff(newvox,primary_node);
             if npn_lut(noncl_node,1) ~= 0
-                allowed_voxels = [allowed_voxels clusterlist{npn_lut(noncl_node,2),7}];
+                allowed_voxels = [allowed_voxels clusterlist{npn_lut(noncl_node,2),7}]; %#ok<AGROW>
             end
             % allowed_voxels = unique([[link(clusterlist{i,3}).point] [link(clusterlist{i,6}).point] clusterlist{i,7} vertcat(node(clusterlist{i,1}).idx)']);
             link(clusterlist{i,3}(j)).point = connect_27(newvoxidx(1),newvoxidx(2),allowed_voxels',sizes,offsetmask);
