@@ -19,7 +19,7 @@ elseif strcmp(type,'ana')
     Link_density = varargin{1,7}(1,ii);
     Links_per_node = varargin{1,8}(1,ii);
 	Tortuosities_xyz = varargin{1,9}(ii,:);
-    if size(varargin,2) > 8
+    if size(varargin,2) > 9
         Pathlengths_x = varargin{1,10};
         Pathlengths_y = varargin{1,11};
         Pathlengths_z = varargin{1,12};
