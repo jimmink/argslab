@@ -49,7 +49,6 @@ coll_skel_thr = .9;                        % Collects any nodes that are closer 
 
 % Tortuosity parameters
 edgenode_dist = 5;                          % Sets the region in which nodes exist are defined as edge nodes, in units of µm. It is recommended to set this larger than 1.5 sigma.
-switch_tortinfo = 'yes';                    % Saves a lot of individual tortuosity information, such as all separate x-, y- and z- paths.
 
 % Link length parameters
 binsize = 250;                              % Sets the bin number of \r in the link length calculations
