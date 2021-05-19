@@ -19,7 +19,6 @@ switch_exporttxt = 'no';                   % Creates txt files for all calculate
 %% Main input variables
 
 projectpath = 'Werkfolder';                 % Will perform actions on all tiff stacks in $projectpath$.
-skeletonpath = '';                          % Loads a skeleton from a .mat file. Make sure the skeleton variable is called $skel$.
 exclude = {};                               % Excludes all files and directories in $exclude$.
 zframes = 'all';                            % The highest slice of the tiff stack that will be considered. If 'all', all frames will be imaged.
 realpx = [.054,.054,.12];               % Dimensions of a single voxel. Used to calculate sizes, choose units carefully. By default in micrometer.
