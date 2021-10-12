@@ -6,12 +6,6 @@ function coord2tif(VoxelSizes,SigmaSize,filename,BoxSize_input,BoxSize_output,Po
 data = importdata(filename);
 [pathstr, fname, ~] = fileparts(filename);
 
-for i = size(data,1):-1:1
-    if data(i,2) == 2
-        data(i,:) = [];
-    end
-end
-
 data = (data./BoxSize_input).*BoxSize_output;  % Transform coordinates into units of sigma
 
 VoxelXSize = VoxelSizes(1);
