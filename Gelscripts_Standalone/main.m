@@ -133,13 +133,13 @@ for a = 1:size(filepaths,2)
             print_timemin(toc, 'link length');
         end
     end
-    
-	%% Save variables, if required
 
-    if strcmp(switch_optimizationtools,'yes')
-       save_var(rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,...
+    %% Save variables
+
+    save_var(rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,...
            skel,node,link,Ibin,Ifl,[pathstr,'/Output/',fname,'/'])
-    end
+
+
 
 
     %% Visualize skeletonized structures
