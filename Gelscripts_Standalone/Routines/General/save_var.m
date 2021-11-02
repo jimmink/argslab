@@ -4,7 +4,7 @@ function save_var(rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,skel,no
 
     Link_density = rho_L;
     Link_number = N_L;
-    Linklength_distribution = ll_distribution;
+    Linklength_distribution = [ll_distribution(:,1),ll_distribution(:,a+1)];
     Links_per_node = LN_ratio;
     Node_density = rho_N;
     Node_number = N_N;
