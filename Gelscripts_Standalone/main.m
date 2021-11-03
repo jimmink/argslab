@@ -52,8 +52,6 @@ for a = 1:size(filepaths,2)
 
     [Ifl, Iraw, Ibin] = project_prep(a,filepaths,zframes,sigmablur,binThres,switch_outputlabeling,switch_optimizationtools,sesize,minfrac,particlediameter,realpx,h_fill_thr);
 
-	vis_bin_bin(Ibin,Ifl,[pathstr,'/Output/',fname,'/Binarized_cleaning.tif'])
-
     if strcmp(switch_outputlabeling,'yes')
         print_timemin(toc, 'preprocessing');
     end
