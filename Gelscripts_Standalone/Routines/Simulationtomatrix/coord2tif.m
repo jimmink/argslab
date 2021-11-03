@@ -6,6 +6,10 @@ function coord2tif(VoxelSizes,SigmaSize,filename,BoxSize_input,BoxSize_output,Po
 data = importdata(filename);
 [pathstr, fname, ~] = fileparts(filename);
 
+if size(data,2) ~= 3
+    error("The data should be formatted to three columns, one for each dimension.")
+end
+
 data = (data./BoxSize_input).*BoxSize_output;  % Transform coordinates into units of sigma
 
 VoxelXSize = VoxelSizes(1);
