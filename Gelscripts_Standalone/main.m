@@ -180,7 +180,7 @@ for a = 1:size(filepaths,2)
         exporttxt_gen(skel,node,link,pathstr,fname)
 
         if strcmp(switch_tortuosity,'yes')
-            exporttxt_tort(tort_data,dtortuosity,dxpath,dypath,dzpath,dxeucl,dyeucl,dzeucl,dxtortuosity,dytortuosity,dztortuosity,pathstr,fname)
+            exporttxt_tort(a,tort_data,dtortuosity,dxpath,dypath,dzpath,dxeucl,dyeucl,dzeucl,dxtortuosity,dytortuosity,dztortuosity,pathstr,fname,switch_optimizationtools)
         end
         
         if strcmp(switch_linklength,'yes')
