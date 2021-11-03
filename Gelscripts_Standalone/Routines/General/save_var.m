@@ -1,4 +1,4 @@
-function save_var(rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,skel,node,link,Ibin,Ifl,path)
+function save_var(a,rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,skel,node,link,Ibin,Ifl,path)
 % SAVE_VAR renames variables, so that users can clearly see what variable 
 % contains what. It also saves these variables in a .mat file.
 
