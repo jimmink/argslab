@@ -136,7 +136,7 @@ for a = 1:size(filepaths,2)
 
     %% Save variables
 
-    save_var(rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,...
+    save_var(a,rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,...
            skel,node,link,Ibin,Ifl,[pathstr,'/Output/',fname,'/'])
 
 
@@ -184,7 +184,7 @@ for a = 1:size(filepaths,2)
         end
         
         if strcmp(switch_linklength,'yes')
-            exporttxt_ll(ll_distribution,N_N,N_L,rho_N,rho_L,LN_ratio,pathstr,fname)
+            exporttxt_ll(a,ll_distribution,N_N,N_L,rho_N,rho_L,LN_ratio,pathstr,fname)
         end
 
         if strcmp(switch_outputlabeling,'yes')
