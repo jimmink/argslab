@@ -1,4 +1,4 @@
-function exporttxt_ll(ll_distribution,N_N,N_L,rho_N,rho_L,LN_ratio,pathstr,fname)
+function exporttxt_ll(a,ll_distribution,N_N,N_L,rho_N,rho_L,LN_ratio,pathstr,fname)
 % EXPORTTXT_LL exports the link length probability data and the final 
 % skeleton output parameters as .txt files.
 
@@ -6,7 +6,7 @@ fileid4 = fopen([pathstr,'/Output/',fname,'/Linklength_distribution.txt'],'w');
 line = 'Lambda\tÑ(Lambda)\n';
 fprintf(fileid4, line);
 for i = 1:size(ll_distribution,1)
-    line = horzcat(num2str(ll_distribution(i,1)),'\t',num2str(ll_distribution(i,2)),'\n');
+    line = horzcat(num2str(ll_distribution(i,1)),'\t',num2str(ll_distribution(i,a+1)),'\n');
     fprintf(fileid4, line);
 end
 fclose(fileid4);
