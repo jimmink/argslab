@@ -14,6 +14,6 @@ fclose(fileid4);
 fileid5 = fopen([pathstr,'/Output/',fname,'/Skeleton_parameters.txt'],'w');
 line = 'N_N\tN_L\trho_N\trho_L\tN_L/N_N\n';
 fprintf(fileid5, line);
-line = horzcat(num2str(N_N(1,1)),'\t',num2str(N_L(1,1)),'\t',num2str(rho_N(1,1)),'\t',num2str(rho_L(1,1)),'\t',num2str(LN_ratio(1,1)),'\n');
+line = horzcat(num2str(N_N(1,a)),'\t',num2str(N_L(1,a)),'\t',num2str(rho_N(1,a)),'\t',num2str(rho_L(1,a)),'\t',num2str(LN_ratio(1,a)),'\n');
 fprintf(fileid5, line);
 fclose(fileid5);
