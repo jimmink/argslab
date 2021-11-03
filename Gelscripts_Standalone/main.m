@@ -137,8 +137,8 @@ for a = 1:size(filepaths,2)
     %% Save variables
 
     save_var(a,rho_L,N_L,ll_distribution,LN_ratio,rho_N,N_N,tort_data,...
-           skel,node,link,Ibin,Ifl,[pathstr,'/Output/',fname,'/'])
-
+           skel,node,link,Ibin,Ifl,[pathstr,'/Output/',fname,'/'],...
+           switch_optimizationtools)
 
 
 
