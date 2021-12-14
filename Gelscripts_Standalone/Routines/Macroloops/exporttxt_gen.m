@@ -34,7 +34,7 @@ fclose(fileid2);
 fileid3 = fopen([pathstr,'/Output/',fname,'/Linklist.txt'],'w');
 line = 'node 1\tnode 2\tlink length\tlink voxels\n';
 fprintf(fileid3, line);
-for i = 1:size(node,2)
+for i = 1:size(link,2)
     voxelsep = sprintf('%i;', link(1,i).pointextended);
     voxelsep = voxelsep(1:end-1);
     line = horzcat(num2str(link(1,i).n1),'\t',num2str(link(1,i).n2),'\t',num2str(link(1,i).length),'\t',voxelsep,'\n');
