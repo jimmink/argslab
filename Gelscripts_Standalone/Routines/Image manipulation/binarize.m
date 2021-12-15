@@ -28,12 +28,16 @@ if strcmp(binThres,'auto') == 1
         avgLow = mean(ValueRow(tot2D-HiLoFracAbs:tot2D));
         otsuthres = graythresh(I2D); % Otsu's method, Matlab in-built routine
         bindata(k,2:4) = [avgHigh,avgLow,otsuthres]; % Write statistics
-        for i = 1:xImage
-            for j = 1:yImage
-                if I(i,j,k) <= otsuthres*255
-                    Iout(i,j,k) = 0;
-                else
-                    Iout(i,j,k) = 1;
+        if otsuthres == 0
+            Iout(:,:,k) = 0;
+        else
+            for i = 1:xImage
+                for j = 1:yImage
+                    if I(i,j,k) < otsuthres*255
+                        Iout(i,j,k) = 0;
+                    else
+                        Iout(i,j,k) = 1;
+                    end
                 end
             end
         end
