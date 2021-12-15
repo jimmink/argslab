@@ -30,7 +30,7 @@ if strcmp(binThres,'auto') == 1
         bindata(k,2:4) = [avgHigh,avgLow,otsuthres]; % Write statistics
         for i = 1:xImage
             for j = 1:yImage
-                if I(i,j,k) < otsuthres*255
+                if I(i,j,k) <= otsuthres*255
                     Iout(i,j,k) = 0;
                 else
                     Iout(i,j,k) = 1;
