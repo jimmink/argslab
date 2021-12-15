@@ -5,6 +5,15 @@ function ellipsoid = create_ellipsoid( sigmasize, particlediameter, realpx )
 diamx = sigmasize(1)*(particlediameter/realpx(1));
 diamy = sigmasize(2)*(particlediameter/realpx(2));
 diamz = sigmasize(3)*(particlediameter/realpx(3));
+if diamx < 1
+    diamx = 1;
+end
+if diamy < 1
+    diamy = 1;
+end
+if diamz < 1
+    diamz = 1;
+end
 ellipsoid = zeros(round(diamx), round(diamy), round(diamz));
 rad_x = (diamx+1)/2;
 rad_y = (diamy+1)/2;
