@@ -27,7 +27,7 @@ run('parameters.m')                                                             
 for a = 1:size(filepaths,2)
 
     [pathstr, fname, extension] = fileparts(filepaths{a});
-    disp(['Working on: ' fname])
+    fprintf("Working on: %s\n", fname)
     
     %% Transform coordinate diagrams into images
     
