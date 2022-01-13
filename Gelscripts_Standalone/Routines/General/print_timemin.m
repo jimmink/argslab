@@ -18,6 +18,6 @@ function print_timemin(t, str_cl)
     else
         milliseconds = num2str(milliseconds);
     end
-    fprintf(['Total ', str_cl, ' runtime: ',minutes,':',seconds,'(:',milliseconds,') min:s(:ms)\n']);
+    fprintf("Total %s runtime: %s:%s(:%s) min:s(:ms)\n", str_cl,minutes,seconds,milliseconds);
 
 end
