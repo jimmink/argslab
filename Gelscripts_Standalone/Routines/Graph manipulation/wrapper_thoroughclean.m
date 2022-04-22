@@ -33,19 +33,7 @@ end
 
 %% Collect clusternodes
 
-done = 0;
-while done == 0
-
-    [node,link] = collect_clusternodes(node,link,cl_thr,[w,l,h],realpx);
-    
-	skeln = Graph2Skel3D(node,link,w,l,h);
-    [node,link] = skel2graph_thoroughclean(skeln,threshold,realpx,cl_thr);
-    if isequal(skel2,skeln)
-        done = 1;
-    end
-    skel2 = skeln;
-    
-end
+[node,link] = collect_clusternodes(node,link,cl_thr,[w,l,h],realpx);
 
 %% Make adjencency matrix weighed on Euclidean node distance
 
